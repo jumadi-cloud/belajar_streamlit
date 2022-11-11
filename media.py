@@ -86,3 +86,5 @@ with col2:
 with col3:
    st.header("Cara Menampilkan Data")
    st.video('https://www.youtube.com/watch?v=dIx4ccvKduU&list=PLm94WimySTnr_AllzUeBTZR-fdvTsw99l&index=3')
+
+

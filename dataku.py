@@ -6,43 +6,39 @@ from matplotlib import pyplot as plt
 from PIL import Image
 
 
+
 # Title
 st.title("Kelas Awan Pintar")
 
 # Header
-st.header("Ayu Belajar Bagaimana Cara untuk menampilkan Media elements di streamlit [sumber](https://docs.streamlit.io/library/api-reference/media)")
+st.header("Ayu Belajar Bagaimana Cara Cara Membuat Layouts and Navigation di streamlit")
 
 st.markdown("""
 ### 
 
-1. Image
+1. Sidebar
 
-2. Audio
-
-3. Video
+2. Navigation
 
 ========================= Contohnya =====================================
 """,True)
-# Image
-image = Image.open('image/foto1.png')
-st.image(image)
-
-# Audio
-image1 = Image.open('image/foto2.png')
-st.image(image1)
-
-# Video
-image3 = Image.open('image/foto3.png')
-st.image(image3)
-st.text('============menampilkan Media elements di streamlit============')
 # ============***============
 
 # Cara untuk menampilkan Media elements di streamlit 
-# 1. Image
+# Sidebar Radio
 
 
-# 2. Audio
+# Sidebar Selectbox
 
 
-# 3. Video
+# Sidebar Multiselect
+
+
+# Sidebar Input Number
+
+
+# Sidebar Radio Number
+
+
+# Sidebar File Uploader
 
