@@ -28,7 +28,7 @@ import plotly_express as px
 # # Sidebar File Uploader
 # st.sidebar.file_uploader("Upload file", type=['Cv', 'txt'])
 
-test = st.sidebar.radio("Navigation", ['Home', 'Columns', 'Tabs'])
+test = st.sidebar.radio("Navigation", ['Home', 'Columns', 'Tabs', 'expander & container'])
 
 if test == "Home":
     st.subheader("Hai, Sahabat Kelas Awan Pintar :wave:")
@@ -131,4 +131,30 @@ if test == "Tabs":
     tab2.subheader("Menapilkan data dengan tabel")
     tab2.write(data)
 
+# Halaman expander & container
 
+if test == "expander & container":
+    st.subheader("Hai, Sahabat Kelas Awan Pintar :wave:")
+    st.write("Kita akan belajar di halaman ini menngunakan fungsi expander & container")
+
+    # Pemngambilan data
+    data = pd.read_csv("dataset/datagaji1.csv")
+    gambar = Image.open('image/logo.png')
+
+    # Contoh Expander
+    st.bar_chart(data)
+    with st.expander("Ini adalah expander"):
+        st.write("""
+        Ini contoh dari expander dan
+        kita akan mencoba visualisasikan data gaji
+        """)
+        st.image(gambar)
+
+    # Contoh Container
+    with st.container():
+        st.write("Ini contoh dari container")
+        st.bar_chart(data)
+
+    st.write("ini Bukan container")
+
+    
