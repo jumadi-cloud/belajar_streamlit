@@ -5,6 +5,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 from PIL import Image
 import plotly_express as px
+import time
 
 # Cara untuk membuat sidebar dan Navigation di streamlit 
 
@@ -28,7 +29,7 @@ import plotly_express as px
 # # Sidebar File Uploader
 # st.sidebar.file_uploader("Upload file", type=['Cv', 'txt'])
 
-test = st.sidebar.radio("Navigation", ['Home', 'Columns', 'Tabs', 'expander & container'])
+test = st.sidebar.radio("Navigation", ['Home', 'Columns', 'Tabs', 'expander & container', 'Status Elements'])
 
 if test == "Home":
     st.subheader("Hai, Sahabat Kelas Awan Pintar :wave:")
@@ -136,7 +137,6 @@ if test == "Tabs":
 if test == "expander & container":
     st.subheader("Hai, Sahabat Kelas Awan Pintar :wave:")
     st.write("Kita akan belajar di halaman ini menngunakan fungsi expander & container")
-
     # Pemngambilan data
     data = pd.read_csv("dataset/datagaji1.csv")
     gambar = Image.open('image/logo.png')
@@ -157,4 +157,23 @@ if test == "expander & container":
 
     st.write("ini Bukan container")
 
-    
+if test == "Status Elements":
+    st.subheader("Hai, Sahabat Kelas Awan Pintar :wave:")
+    st.write("Kita akan belajar di halaman ini menngunakan fungsi Status Elements")
+
+    # Contoh Fungsi Progress
+    progress = st.progress(0)
+    for i in range(100):
+        time.sleep(0.1)
+        progress.progress(i+1)
+
+    # Contoh Fungsi Balloons
+    st.balloons()
+
+    # Contoh Fungsi Error, Success, Info, Exception dan Warning
+    st.error("Ini Adalah Contoh Fungsi Dari Error")
+    st.success("Ini Adalah Contoh Fungsi Dari Success")
+    st.info("Ini Adalah Contoh Fungsi Dari Info")
+    st.exception(RuntimeError("Ini Adalah Contoh Dari Erorr"))
+    st.warning("Ini Adalah Contoh Fungsi Dari Warning")
+
