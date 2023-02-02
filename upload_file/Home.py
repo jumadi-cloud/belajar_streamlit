@@ -37,7 +37,22 @@ st.write(
             """
         )
 st.header("Topologi Upload file dengan Streamlit")
-top = Image.open('Documents/Topologi.png')
-st.image(top)
+top1 = Image.open('Documents/Topologi.png')
+top2 = Image.open('Documents/Topologi Save.png')
+top3 = Image.open('Documents/struktur folder.png')
+
+col1, col2, col3 = st.columns(3)
+
+with col1:
+   st.header("Topologi Upload File")
+   st.image(top1)
+
+with col2:
+   st.header("Topologi Save Data atau File")
+   st.image(top2)
+
+with col3:
+   st.header("Struktur Folder")
+   st.image(top3)
 
 st.write("---")

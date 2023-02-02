@@ -1,6 +1,7 @@
 # Import Library
 import streamlit as st
 import pandas as pd
+import os
 
 
 st.subheader("Halaman CSV")
@@ -13,6 +14,12 @@ st.write(
             dan ini adalah materi lanjutannya 
             """
         )
+# method atau fungsi save
+def save_upload(uploadedfile):
+    with open(os.path.join("Documents/DataCsv",uploadedfile.name), "wb") as f:
+        f.write(uploadedfile.getbuffer())
+        return st.success("Save file: {} in Documents".format(uploadedfile.name))
+
 
 data_file = st.file_uploader("Upload CSV",type=["csv"])
 if data_file is not None:
@@ -22,3 +29,7 @@ if data_file is not None:
     st.write(file_details)
     df = pd.read_csv(data_file)
     st.dataframe(df)
+
+    # Save File
+    save_upload(data_file)
+    

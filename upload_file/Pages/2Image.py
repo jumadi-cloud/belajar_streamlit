@@ -1,6 +1,7 @@
 # Import Library
 import streamlit as st
 from PIL import Image
+import os
 
 st.subheader("Halaman Image")
 st.write(
@@ -16,7 +17,7 @@ st.write(
 def load_image(image_file):
     img = Image.open(image_file)
     return img
-
+    
 image_file = st.file_uploader("Upload Image",type=['png','jpeg','jpg'])
 if image_file is not None:
     st.write(type(image_file))
@@ -24,4 +25,12 @@ if image_file is not None:
     "FileType":image_file.type,"FileSize":image_file.size}
     st.write(file_details)
 
-    st.image(load_image(image_file))
+    # Menampilkan Image 
+    img = load_image(image_file)
+    st.image(img, width=350)
+    
+    # Save File
+    with open(os.path.join("Documents/Image",image_file.name),"wb") as f:
+        f.write(image_file.getbuffer())
+        
+    st.success("file Save")
