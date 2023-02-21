@@ -32,5 +32,5 @@ if image_file is not None:
     # Save File
     with open(os.path.join("Documents/Image",image_file.name),"wb") as f:
         f.write(image_file.getbuffer())
-        
-    st.success("file Save")
+
+    st.success("File berhasil disave")

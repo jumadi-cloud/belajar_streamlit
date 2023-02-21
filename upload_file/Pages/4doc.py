@@ -4,6 +4,7 @@ import docx2txt #library txt atau docu
 from PyPDF2 import PdfFileReader #library pdf
 import os
 
+
 st.subheader("Halaman Document")
 st.write(
             """
@@ -28,7 +29,8 @@ def read_pdf(file):
 def save_upload(uploadedfile):
     with open(os.path.join("Documents/DataPdf",uploadedfile.name), "wb") as f:
         f.write(uploadedfile.getbuffer())
-        return st.success("Save file: {} in Documents".format(uploadedfile.name))
+        return st.success("File berhasil disave: {} in Documents".format(uploadedfile.name))
+
 
 doc_file = st.file_uploader("Upload Document", type=["pdf", "docx", "txt"])
 if st.button("Proses"):
@@ -41,17 +43,23 @@ if st.button("Proses"):
             raw_text = str(doc_file.read(),"utf-8")
             # st.write(raw_text)
             st.text(raw_text)
+
+            # Save File
+            save_upload(doc_file)
         
         # Documents file type pdf
         elif doc_file.type == "application/pdf":
              raw_text = read_pdf(doc_file)
              st.write(raw_text)
-             
+
              # Save File
              save_upload(doc_file)
-
+        
         # Documents file type docu
         else:
             raw_text = docx2txt.process(doc_file)
             st.write(raw_text)
             # st.text(raw_text)
+
+            # Save File
+            save_upload(doc_file)

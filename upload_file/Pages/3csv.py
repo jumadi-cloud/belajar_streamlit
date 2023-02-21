@@ -3,7 +3,6 @@ import streamlit as st
 import pandas as pd
 import os
 
-
 st.subheader("Halaman CSV")
 st.write(
             """
@@ -18,8 +17,7 @@ st.write(
 def save_upload(uploadedfile):
     with open(os.path.join("Documents/DataCsv",uploadedfile.name), "wb") as f:
         f.write(uploadedfile.getbuffer())
-        return st.success("Save file: {} in Documents".format(uploadedfile.name))
-
+        return st.success("File berhasil disave: {} in Documents".format(uploadedfile.name))
 
 data_file = st.file_uploader("Upload CSV",type=["csv"])
 if data_file is not None:
@@ -32,4 +30,5 @@ if data_file is not None:
 
     # Save File
     save_upload(data_file)
+
     
