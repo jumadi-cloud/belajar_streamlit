@@ -13,7 +13,7 @@ st.write(
             dan ini adalah materi lanjutannya 
             """
         )
-# method atau fungsi save
+# Method atau fungsi save
 def save_upload(uploadedfile):
     with open(os.path.join("Documents/DataCsv",uploadedfile.name), "wb") as f:
         f.write(uploadedfile.getbuffer())
@@ -31,4 +31,8 @@ if data_file is not None:
     # Save File
     save_upload(data_file)
 
-    
+    # Download
+    st.download_button(label='Download file',
+                       data=df.to_csv(),
+                       file_name='My Documents.csv',
+                       mime='text/csv')

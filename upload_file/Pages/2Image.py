@@ -34,3 +34,9 @@ if image_file is not None:
         f.write(image_file.getbuffer())
 
     st.success("File berhasil disave")
+
+    # Download
+    st.download_button(label='Download file',
+                       data=image_file,
+                       file_name='My Documents.png')
+
