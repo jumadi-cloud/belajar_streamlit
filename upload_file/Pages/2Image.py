@@ -13,6 +13,7 @@ st.write(
             dan ini adalah materi lanjutannya
             """
         )
+
 # method atau fungsi load image
 def load_image(image_file):
     img = Image.open(image_file)
@@ -36,7 +37,5 @@ if image_file is not None:
     st.success("File berhasil disave")
 
     # Download
-    st.download_button(label='Download file',
-                       data=image_file,
-                       file_name='My Documents.png')
+
 

@@ -4,8 +4,6 @@ import docx2txt #library txt atau docu
 from PyPDF2 import PdfFileReader #library pdf
 import os
 
-
-
 st.subheader("Halaman Document")
 st.write(
             """
@@ -16,6 +14,7 @@ st.write(
             **TXT, DOC, PDF** dan Keep Learning temen temen 🧑‍🎓
             """
         )
+
 # method atau fungsi load pdf
 def read_pdf(file):
 	pdfReader = PdfFileReader(file)
@@ -49,10 +48,7 @@ if st.button("Proses"):
             save_upload(doc_file)
 
             # Dowloand File
-            st.download_button(label='Download file', 
-                               data=raw_text, 
-                               file_name='My Documents.txt', 
-                               mime='text/plain')
+
         
         # Documents file type pdf
         elif doc_file.type == "application/pdf":
@@ -63,10 +59,7 @@ if st.button("Proses"):
              save_upload(doc_file)
 
              # Download File
-             st.download_button(label='Download file',
-                                data=doc_file,
-                                file_name='My Documents.pdf',
-                                mime='application/pdf')
+
              
         # Documents file type docu
         else:
@@ -78,6 +71,4 @@ if st.button("Proses"):
             save_upload(doc_file)
 
             # Download File
-            st.download_button(label='Download file', 
-                               data=doc_file, 
-                               file_name='My Documents.docx')
+            
